@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    <h1>Welcome</h1>
-  </div>
+	<v-container fluid>
+	</v-container>
 </template>
 
 <script>
@@ -9,8 +8,10 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
-  components: {
-  },
+	name: 'home',
+	components: {
+	},
+	// async mounted() {},
 };
+
 </script>
