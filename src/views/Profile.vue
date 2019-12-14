@@ -1,24 +1,35 @@
 <template>
-	<v-container fluid fill-height>
+	<v-container
+		fluid
+		class="fill-height" >
 		<v-row>
-			<v-card
-				class="mx-auto"
-				:loading="isLoading"
+			<v-col
+				cols="12"
 			>
-				<v-card-title>Profile</v-card-title>
-				<v-card-text>
-					<v-text-field v-model="user.username"/>
-					<v-text-field v-model="user.phone"/>
-					<v-text-field v-model="user.email"/>
-					<v-text-field v-model="user.birth_day"/>
-				</v-card-text>
-				<v-card-actions>
-					<v-btn
-					>
-						Ok
-					</v-btn>
-				</v-card-actions>
-			</v-card>
+				<v-row>
+					<v-col cols="4">
+						<v-card
+							:loading="isLoading"
+						>
+							<v-card-title>Profile</v-card-title>
+							<v-card-text>
+								<v-text-field v-model="user.username"/>
+								<v-text-field v-model="user.phone"/>
+								<v-text-field v-model="user.email"/>
+								<v-text-field v-model="user.birth_day"/>
+							</v-card-text>
+						</v-card>
+					</v-col>
+					<v-col
+						cols="7">
+						<v-card>
+							<v-card-title>Orders</v-card-title>
+							<v-card-text>
+							</v-card-text>
+						</v-card>
+					</v-col>
+				</v-row>
+			</v-col>
 		</v-row>
 		<v-error-snack-bar
 			:message="errMessage"
@@ -53,9 +64,7 @@ export default {
 			this.isLoading = false;
 		} catch (err) {
 			this.isLoading = false;
-			this.loading = false;
-			this.errMessage = err.message;
-			this.showErr = true;
+			this.$router.push('/login');
 		}
 	},
 };

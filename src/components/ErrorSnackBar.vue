@@ -1,8 +1,8 @@
 <template>
 	<v-snackbar v-model="value">
-		{{ message }}
+		<h1 >{{ message }}</h1>
 		<v-btn
-			color="primary"
+			color="white"
 			text
 			@click="$emit('input', false)"
 		>

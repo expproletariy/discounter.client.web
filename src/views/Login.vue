@@ -1,38 +1,46 @@
 <template>
-	<v-container fluid fill-height>
-		<v-row>
-			<v-card
-				class="mx-auto"
-				:loading="isLoading"
-			>
-				<v-card-title>Login</v-card-title>
-				<v-card-text>
-					<v-form v-model="loginFomValid">
-						<v-text-field
-							v-model="login"
-							label="Phone"
-						/>
-						<v-text-field
-							v-model="password"
-							label="Password"
-							type="password"
-						/>
-					</v-form>
-				</v-card-text>
-				<v-card-actions>
-					<v-btn
-						:disabled="!loginFomValid"
-						@click="loginUser"
-					>
-						Login
-					</v-btn>
-				</v-card-actions>
-			</v-card>
+	<v-container
+		class="fill-height"
+		fluid >
+		<v-row
+			align="center"
+			justify="center">
+			<v-col
+				cols="12"
+				sm="8"
+				md="4">
+				<v-card>
+					<v-card-title>Login</v-card-title>
+					<v-card-text>
+						<v-form
+							v-model="loginFomValid" >
+							<v-text-field
+								v-model="login"
+								label="Phone, Username or Email"
+								required />
+							<v-text-field
+								v-model="password"
+								label="Password"
+								type="password"
+								required />
+						</v-form>
+					</v-card-text>
+					<v-card-actions>
+						<v-btn
+							:disabled="!loginFomValid"
+							:loading="isLoading"
+							@click="loginUser"
+							rounded
+							block >
+							Login
+						</v-btn>
+					</v-card-actions>
+				</v-card>
+			</v-col>
 		</v-row>
 		<v-error-snack-bar
 			:message="errMessage"
-			v-model="showErr"
-		/>
+			v-model="showErr" />
 	</v-container>
 </template>
 
@@ -63,6 +71,8 @@ export default {
 						phone: this.login,
 					},
 					password: this.password,
+					name: this.login,
+					email: this.login,
 				});
 				this.isLoading = false;
 				localStorage.setItem('access_token', resp.data.access_token);
