@@ -66,16 +66,15 @@ export default {
 		async loginUser() {
 			try {
 				this.isLoading = true;
-				const resp = await this.$axios.post('/users/login', {
-					profile: {
-						phone: this.login,
-					},
+				const resp = await this.$axios.post('/login', {
+					phone: this.login,
 					password: this.password,
 					name: this.login,
 					email: this.login,
 				});
 				this.isLoading = false;
-				localStorage.setItem('access_token', resp.data.access_token);
+				localStorage.clear();
+				localStorage.setItem('access_token', resp.data.token);
 				this.$router.push('/me');
 			} catch (err) {
 				this.isLoading = false;

@@ -50,9 +50,9 @@
 			</v-list>
 		</v-navigation-drawer>
 
-		<v-content app>
+		<v-main app>
 			<router-view/>
-		</v-content>
+		</v-main>
 	</v-app>
 </template>
 

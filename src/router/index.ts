@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Profile from '../views/Profile.vue';
+import MakeOrder from '../views/MakeOrder.vue';
 import RegisterUser from '../views/RegisterUser.vue';
 
 Vue.use(VueRouter);
@@ -27,6 +28,11 @@ const routes = [
 		path: '/me',
 		name: 'me',
 		component: Profile,
+	},
+	{
+		path: '/orders/new',
+		name: 'orders_new',
+		component: MakeOrder,
 	},
 ];
 

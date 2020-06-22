@@ -8,28 +8,31 @@ const provider = axiosApp;
 
 export default new Vuex.Store({
 	state: {
+		QRCode: null,
+		QRsrc: '',
 		user: {
 			avatar: '',
 			birth_day: null,
 			email: '',
 			male: '',
 			name: '',
-			patronymic: '',
 			phone: '',
 			surname: '',
-			username: '',
-		} as IUser,
+			first_name: '',
+		},
 	},
 	mutations: {
-		setUserData(state, user: IUser) {
+		setUserData(state, user) {
 			state.user = user;
+		},
+		setUpQRsrc(state, src) {
+			state.QRsrc = src;
+		},
+		setUpQRCode(state, code) {
+			state.QRCode = code;
 		},
 	},
 	actions: {
-		async fetchUserData(store) {
-			const resp = await provider.get<IUser>('/users/me');
-			store.commit('setUserData', resp.data);
-		},
 	},
 	modules: {
 	},

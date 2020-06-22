@@ -134,13 +134,12 @@ export default {
 		async registerUser() {
 			try {
 				this.isLoading = true;
-				const resp = await this.$axios.post('/users/create', {
-					profile: {
-						phone: this.user.phone,
-					},
+				const resp = await this.$axios.post('/register', {
+					phone: this.user.phone,
 					name: this.user.name,
 					email: this.user.email,
 					password: this.user.password,
+					birth_day: this.user.birth_day,
 				});
 				this.isLoading = false;
 				this.$router.push('/login');
